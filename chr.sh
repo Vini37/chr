@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 echo
-echo "=== MikroTik 7 Installer ==="
+echo "MikroTik 7 Installer"
 echo
 sleep 3
 wget https://download.mikrotik.com/routeros/7.20.2/chr-7.20.2.img.zip -O chr.img.zip  && \
@@ -16,6 +16,6 @@ GATEWAY=`ip route list | grep default | cut -d' ' -f 3` && \
 echo GATEWAY is $GATEWAY && \
 sleep 5 && \
 dd if=chr.img of=/dev/$STORAGE bs=4M oflag=sync && \
-echo "Ok, reboot" && \
+echo "Reboot..." && \
 echo 1 > /proc/sys/kernel/sysrq && \
 echo b > /proc/sysrq-trigger && \
